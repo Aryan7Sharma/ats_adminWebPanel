@@ -1,0 +1,17 @@
+/* Search input styling */
+.zomato-search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #F5F5F5;
+    border-radius: 5px;
+    background: #F5F5F5;
+    color: #222;
+    outline: none;
+    border-radius: 50px;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.zomato-search-input:focus {
+    border-color: #FC8019;
+}
