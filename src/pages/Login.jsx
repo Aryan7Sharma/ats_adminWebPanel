@@ -17,7 +17,7 @@ export default function LoginPage() {
     try {
       setIsLoading(true);
       const options = {
-        url: 'http://13.233.142.147/ats/api/auth/login',
+        url: '/ats/api/auth/login',
         method: 'POST',
         headers: {
           'Accept': 'application/json',
