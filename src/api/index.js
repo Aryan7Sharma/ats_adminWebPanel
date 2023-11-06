@@ -2,9 +2,11 @@ import axios from 'axios';
 //import jwt_decode from 'jwt-decode';
 
 //axios.defaults.baseURL = process.env.NODE_ENV === "production"?"/api":"http://localhost:3001/api";
-axios.defaults.baseURL = "http://localhost:3001/ats/api";
+axios.defaults.baseURL = "http://13.233.142.147/ats/api";
 /** Make API Requests */
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFua2l0QGdtYWlsLmNvbSIsImlhdCI6MTY5ODY0NzA0NCwiZXhwIjoxNzYxNzYyMjQ0fQ.Vk2_YjbxLq77Rdf6y5BiZpJiRclmMgHC5HLf3EfnXdU"//localStorage.getItem("authToken");
+const token = localStorage.getItem("authToken");
+console.log("token1", token);
+//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFua2l0QGdtYWlsLmNvbSIsImlhdCI6MTY5ODY0NzA0NCwiZXhwIjoxNzYxNzYyMjQ0fQ.Vk2_YjbxLq77Rdf6y5BiZpJiRclmMgHC5HLf3EfnXdU"//;
 
 
 export async function CustomPostApi(url, object, contentType) {

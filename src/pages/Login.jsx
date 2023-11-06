@@ -17,7 +17,7 @@ export default function LoginPage() {
     try {
       setIsLoading(true);
       const options = {
-        url: 'http://3.108.236.67/ats/api/auth/login',
+        url: 'http://13.233.142.147/ats/api/auth/login',
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -34,7 +34,8 @@ export default function LoginPage() {
         toast.error("Login Failed!")
       } else if (loginPromise.status === 200) {
         toast.success("Login Successfully!")
-        const { data } = loginPromise.data
+        const { data } = loginPromise.data;
+        console.log("data",data);
         const authToken = data?.authToken;
         console.log(authToken);
         const userDetailsString = JSON.stringify(data?.employee);
