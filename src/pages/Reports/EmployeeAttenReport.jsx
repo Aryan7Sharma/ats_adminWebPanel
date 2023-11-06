@@ -40,7 +40,7 @@ const EmployeeAttenReport = () => {
       if(!emp){return toast.error('Failed, You did not Select an Employee!')}
       if(!startDate || !endDate){return toast.error('Failed, You did not Select an Correct Date!')}
       const apidata = {
-        emp_id: '3001',//emp._id,
+        emp_id: emp._id,
         start_date: startDate,
         end_date: endDate,
       }

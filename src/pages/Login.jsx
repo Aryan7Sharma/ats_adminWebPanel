@@ -17,7 +17,7 @@ export default function LoginPage() {
     try {
       setIsLoading(true);
       const options = {
-        url: 'http://13.126.236.131/ats/api/auth/login',
+        url: 'http://3.108.236.67/ats/api/auth/login',
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -36,11 +36,12 @@ export default function LoginPage() {
         toast.success("Login Successfully!")
         const { data } = loginPromise.data
         const authToken = data?.authToken;
+        console.log(authToken);
         const userDetailsString = JSON.stringify(data?.employee);
         localStorage.setItem('authToken', authToken);
         localStorage.setItem('userDetails', userDetailsString);
         navigate("/");
-        await setUser({authToken: authToken});
+        await setUser({ authToken: authToken });
       } else {
       }
     } catch (error) {

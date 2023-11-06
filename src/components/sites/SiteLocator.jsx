@@ -25,7 +25,7 @@ function SiteLocator({ selectedLocation,setSelectedLocation,searchBox,setSearchB
     return (
         <div>
             <LoadScript
-                googleMapsApiKey={"AIzaSyDp13I4_X8DJgooqSZuWj5sivmp-XPPNx0"}
+                googleMapsApiKey={""}
                 libraries={["places"]}
             >
 

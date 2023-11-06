@@ -5,6 +5,7 @@ import ProfileBox from './ProfileBox';
 const useStyles = makeStyles(theme => ({
     root: {
         backgroundColor: '#E4E5E6',
+        height:'15vh'
     },
     pageHeader: {
         padding: theme.spacing(4),
@@ -25,11 +26,12 @@ const useStyles = makeStyles(theme => ({
     },
     centeredImage: {
         width: '70%',
+        height:'70%',
         display: 'flex',
         justifyContent: 'center'
     },
     centeredImageStyle: {
-        height: 100,
+        height: 70,
     }
 }))
 
