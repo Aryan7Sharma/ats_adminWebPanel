@@ -7,6 +7,7 @@ const AddSite = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [selectedLocation, setSelectedLocation] = useState(null);
     const [searchBox, setSearchBox] = useState(null);
+    const [siteAlias, setSiteAlias] = useState("");
 
     const handleaddNewSite = async () => {
         try {
@@ -15,6 +16,7 @@ const AddSite = () => {
             if(!selectedLocation){return toast.error('Failed!, location is not selected yet.')};
             if(!selectedLocation?.formatted_address){return toast.error('Failed!, unable to get location name please reselect your location.')};
             if(!selectedLocation?.geometry?.location?.lat() || !selectedLocation?.geometry?.location?.lng()){return toast.error('Failed!, unable to get latitude and longitude of the location please reselect your location.')}
+            if(!siteAlias){return toast.error('Failed!, Site/Location Alias is not Provided, Plesae Enter an Alias')};
             const apidata = {
                 location_name: selectedLocation?.formatted_address,
                 latitude: selectedLocation?.geometry?.location?.lat(),
@@ -52,6 +54,8 @@ const AddSite = () => {
                         setSelectedLocation={setSelectedLocation}
                         searchBox={searchBox}
                         setSearchBox={setSearchBox}
+                        siteAlias={siteAlias}
+                        setSiteAlias={setSiteAlias}
                     />
                 </div>
             </div>

@@ -5,8 +5,8 @@ import exportData from '../common/ExportToExcel';
 
 
 const columns = [
-    { field: 'department_name',  headerName: 'Department name', width: 400 },
-    { field: 'department_id', headerName: 'Department ID', width: 400 },
+    { field: 'department_name',  headerName: 'Department name', width: 500 },
+    { field: 'department_id', headerName: 'Department ID', width: 500 },
 ];
 
 
@@ -23,7 +23,7 @@ const AllDepts = ({depts}) => {
             <h2 style={{ margin: 'auto' }}>All Department's:</h2>
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <div>
-                    <div style={{ width: '70%', margin: 'auto', backgroundColor: '#F9FAFB', marginBlock: 20 }}>
+                    <div style={{  margin: 'auto', backgroundColor: '#F9FAFB', marginBlock: 20, minHeight:'82vh' }}>
                         <Button
                             variant='contained'
                             color='primary'

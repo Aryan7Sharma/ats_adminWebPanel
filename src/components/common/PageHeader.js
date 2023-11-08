@@ -1,14 +1,15 @@
 import React from 'react'
-import { Paper, Card, Typography, makeStyles, Button } from '@material-ui/core'
+import { Paper, Card, Typography, makeStyles, Button, Divider } from '@material-ui/core'
 import Logo from "../../assets/images/company_logo.png";
 import ProfileBox from './ProfileBox';
 const useStyles = makeStyles(theme => ({
     root: {
         backgroundColor: '#E4E5E6',
-        height:'15vh'
+        height:'10vh'
     },
     pageHeader: {
-        padding: theme.spacing(4),
+        paddingLeft:theme.spacing(4),
+        //padding: theme.spacing(4),
         display: 'flex',
         marginBottom: theme.spacing(2)
     },
@@ -58,6 +59,7 @@ export default function PageHeader(props) {
                 </div>
                 <ProfileBox />
             </div>
+            <Divider />
         </Paper>
     )
 }
