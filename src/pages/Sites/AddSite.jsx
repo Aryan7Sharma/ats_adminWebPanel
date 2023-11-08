@@ -43,11 +43,11 @@ const AddSite = () => {
             </div>
             <div style={{ marginLeft: 240, width: '87vw', position: 'absolute' }}>
                 <div style={{ position: 'relative' }}>
-                    <PageHeader
+                    {/* <PageHeader
                         title="Add Site"
                         subTitle="From Here You Can Add a New Site"
                         icon={<AddLocationAltIcon fontSize="large" />}
-                    />
+                    /> */}
                     <SiteLocator
                         handleaddNewSite={handleaddNewSite}
                         selectedLocation={selectedLocation}

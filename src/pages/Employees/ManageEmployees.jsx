@@ -35,11 +35,11 @@ const ManageEmployees = () => {
             </div>
             <div style={{ marginLeft: 240, width: '87vw', position: 'absolute' }}>
                 <div style={{ position: 'relative' }}>
-                    <PageHeader
+                    {/* <PageHeader
                         title="Manage Sites"
                         subTitle="Maintain Your Sites Details."
                         icon={<EditLocationAltIcon fontSize="large" />}
-                    />
+                    /> */}
                     <AllEmployees
                     employees={employees}
                     />

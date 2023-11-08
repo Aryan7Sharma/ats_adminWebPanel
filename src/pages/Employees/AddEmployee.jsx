@@ -98,11 +98,11 @@ const AddEmployee = () => {
             </div>
             <div style={{ marginLeft: 240, width: '87vw', position: 'absolute' }}>
                 <div style={{ position: 'relative' }}>
-                    <PageHeader
+                    {/* <PageHeader
                         title="Add Emplyee"
                         subTitle="From Here You Can Add a New Employee"
                         icon={<PersonAddIcon fontSize="large" />}
-                    />
+                    /> */}
                     <RegisterEmployee
                         departments={departments}
                         dept={dept}

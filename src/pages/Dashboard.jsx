@@ -12,11 +12,11 @@ const Dashboard = () => {
             </div>
             <div style={{ marginLeft: 240, width: '87vw', position: 'absolute' }}>
                 <div style={{ position: 'relative' }}>
-                    <PageHeader
+                    {/* <PageHeader
                         title="ATS Dashboard"
                         subTitle="Employee's  Attendance Insights."
                         icon={<HomeIcon fontSize="large" />}
-                    />
+                    /> */}
                     <div style={{ backgroundColor: '#dfe6e9' }}>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-evenly', marginBlock: 20 }}>

@@ -71,11 +71,11 @@ const EmployeeAttenReport = () => {
       </div>
       <div style={{ marginLeft: 240, width: '87vw', position: 'absolute' }}>
         <div style={{ position: 'relative' }}>
-          <PageHeader
+          {/* <PageHeader
             title="Employee Attendance Report"
             subTitle="Check Any Employee Attendance Report Via Filters."
             icon={<ContentPasteSharpIcon fontSize="large" />}
-          />
+          /> */}
           <EmployeeAttenTable
             employees={employees}
             startDate={startDate}

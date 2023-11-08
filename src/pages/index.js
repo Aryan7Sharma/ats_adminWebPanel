@@ -9,3 +9,4 @@ export {default as AddSite} from './Sites/AddSite';
 export {default as ManageEmployees} from './Employees/ManageEmployees';
 export {default as AddEmployee} from './Employees/AddEmployee';
 export {default as ManageDepts} from './Departments/ManageDepts';
+export {default as UserProfile} from './UserProfile';

@@ -16,6 +16,7 @@ import {
   AddSite,
   ManageSites,
   ManageDepts,
+  UserProfile
 } from './pages/index';
 import SiteForm from './components/sites/SiteForm';
 
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <ProtectAllUserRoute><DashboardPage /></ProtectAllUserRoute>
+    element: <ProtectAllUserRoute><UserProfile /></ProtectAllUserRoute>
   },
   {
     path: '/rep/employeeAttenReport',

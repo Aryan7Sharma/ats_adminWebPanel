@@ -35,11 +35,11 @@ const ManageDepts = () => {
             </div>
             <div style={{ marginLeft: 240, width: '87vw', position: 'absolute' }}>
                 <div style={{ position: 'relative' }}>
-                    <PageHeader
+                    {/* <PageHeader
                         title="Manage Sites"
                         subTitle="Maintain Your Sites Details."
                         icon={<RoomPreferencesIcon fontSize="large" />}
-                    />
+                    /> */}
                     <AllDepts
                     depts={depts}
                     />
