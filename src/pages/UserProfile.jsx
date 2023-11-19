@@ -6,13 +6,14 @@ import { CustomGetApi } from '../api';
 
 const UserProfile = () => {
     const [isLoading, setIsLoading] = useState(false);
-    const getUserDetails = async () => {
+    const [userDetails, setUserDetails] = useState(null);
+    const getDashData = async () => {
         try {
             setIsLoading(true);
-            const {data, error} = CustomGetApi('');
-            if(data && !error){
+            const { data, error } = CustomGetApi('');
+            if (data && !error) {
 
-            }else{
+            } else {
 
             }
         } catch (err) {
@@ -21,22 +22,33 @@ const UserProfile = () => {
             setIsLoading(false);
         }
     };
+    const getUserDetails = async () => {
+        try {
+            const user = await JSON.parse(localStorage.getItem('userDetails'));
+            if (user) {
+                setUserDetails(user);
+            }
+            return
+        } catch (err) {
+        }
+    }
 
     useEffect(() => {
-        //getUserDetails();
+        //getDashData();
+        getUserDetails();
     }, [])
     return (
-        <main style={{ display: 'flex'}}>
+        <main style={{ display: 'flex' }}>
             <div style={{ display: 'flex', justifyContent: 'flex-start', width: '20vw' }}>
                 <Sidebar />
             </div>
-            <div style={{ marginLeft: 240, width: '87vw', position: 'absolute'}}>
+            <div style={{ marginLeft: 240, width: '87vw',minHeight:'100vh' ,position: 'absolute',backgroundColor: '#dfe6e9' }}>
                 <div style={{ position: 'relative' }}>
                     <div>
                         {/* main user profile */}
                         <div>
                             <Container maxWidth="s">
-                                <Paper elevation={3} style={{ padding: '20px', marginTop: '20px',backgroundColor: '#dfe6e9' }}>
+                                <Paper elevation={3} style={{ padding: '20px', marginTop: '20px', backgroundColor: '#dfe6e9' }}>
                                     <Grid container spacing={3}>
                                         <Grid item xs={12} sm={4}>
                                             <Avatar style={{ width: '150px', height: '150px', margin: '0 auto' }}>
@@ -45,13 +57,13 @@ const UserProfile = () => {
                                         </Grid>
                                         <Grid item xs={12} sm={8}>
                                             <Typography variant="h4" gutterBottom>
-                                                John Doe
+                                                {userDetails?.emp_name}
                                             </Typography>
                                             <Typography variant="body1">
-                                                Email: john.doe@example.com
+                                                {userDetails?.emp_emailid}
                                             </Typography>
                                             <Typography variant="body1">
-                                                Phone: (123) 456-7890
+                                                {userDetails?.emp_phoneno}
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -86,14 +98,14 @@ const UserProfile = () => {
                                     {/* Add a list of user's order history here */}
 
                                     <Divider style={{ margin: '20px 0' }} />
-                                    <Grid container spacing={3} style={{display:'flex', justifyContent:'center'}}>
+                                    <Grid container spacing={3} style={{ display: 'flex', justifyContent: 'center' }}>
                                         <Button variant="contained" color="primary"
-                                        style={{marginRight:'5px'}}
+                                            style={{ marginRight: '5px' }}
                                         >
                                             Edit Profile
                                         </Button>
                                         <Button variant="contained" color="primary"
-                                        style={{marginLeft:'5px'}}
+                                            style={{ marginLeft: '5px' }}
                                         >
                                             Sign-Out
                                         </Button>

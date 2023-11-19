@@ -1,7 +1,7 @@
 import axios from 'axios';
 //import jwt_decode from 'jwt-decode';
 
-axios.defaults.baseURL = process.env.NODE_ENV === "production"?"/ats/api":"http://13.233.142.147/ats/api";
+axios.defaults.baseURL = process.env.NODE_ENV === "production"?"/ats/api":"http://3.110.147.43/ats/api";
 
 //axios.defaults.baseURL = "/ats/api";
 /** Make API Requests */

@@ -6,7 +6,8 @@ import exportData from '../common/ExportToExcel';
 
 const columns = [
     { field: 'location_id', headerName: 'Location/Site ID', width: 200 },
-    { field: 'location_name',  headerName: 'Location/Site', width: 600 },
+    { field: 'location_name',  headerName: 'Site Name', width: 400 },
+    { field: 'location_alias',  headerName: 'Site Alias', width: 400 },
     //{ field: 'latitude', headerName: 'Location/Site Latitude', width: 200 },
     ,//{ field: 'longitude', headerName: 'Location/Site Longitude', width: 200 },
     { field: 'creater_id', headerName: 'Creater ID', width: 200 },
@@ -23,11 +24,11 @@ const AllSites = ({sites}) => {
     };
 
     return (
-        <div style={{ backgroundColor: '#dfe6e9' }}>
-            <h2 style={{ margin: 'auto' }}>All Locations-Sites:</h2>
+        <div>
+            <h2 style={{ margin: 'auto' }}>All Location-Sites:</h2>
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <div>
-                    <div style={{width:'100%', margin: 'auto', backgroundColor: '#F9FAFB', marginBlock: 20, minHeight:'82vh'  }}>
+                    <div style={{width:'100%', margin: 'auto', backgroundColor: '#F9FAFB', marginBlock: 20, minHeight:'82vh',minWidth:'84vw'   }}>
                         <Button
                             variant='contained'
                             color='primary'

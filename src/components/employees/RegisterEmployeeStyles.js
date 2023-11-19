@@ -12,7 +12,7 @@ export const register = theme => ({
     marginRight: theme.spacing(3),
     marginLeft: theme.spacing(3),
     display: "block",
-    width: "auto",
+    minWidth: "80vw",
     [theme.breakpoints.up(400 + theme.spacing(2))]: {
       width: 800,
       marginLeft: "auto",
@@ -65,6 +65,7 @@ export const register = theme => ({
 
   inputs: {
     position: "relative",
+    width:'35vw',
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     fontFamily: "Cutive Mono, monospace",

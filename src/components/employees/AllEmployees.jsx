@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import exportData from '../common/ExportToExcel';
 import UpdateEmployeeForm from './UpdateEmployeeForm';
 import { makeStyles } from '@mui/styles';
+import { StripedDataGrid } from '../common/constants/theme';
 
 
 const columns = [
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         alignItems: 'center',
         zIndex: '9999', /* Ensure it's above other content */
-      }
+    }
 }));
 
 
@@ -84,17 +85,20 @@ const AllEmployees = ({ employees }) => {
     };
 
     return (
-        <div style={{ backgroundColor: '#dfe6e9' }}>
-            <h2 style={{ margin: 'auto' }}>All Locations-Sites:</h2>
+        <div>
+            <h2 style={{ margin: 'auto' }}>All Employee's:</h2>
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <div>
-                    <div style={{ width: '70%', margin: 'auto', backgroundColor: '#F9FAFB', marginBlock: 20 }}>
+                    <div style={{ maxWidth: '84vw', margin: 'auto', backgroundColor: '#F9FAFB', marginBlock: 20 }}>
                         <Button variant='contained' color='primary' onClick={handleExportToExcel}>
                             Export to Excel
                         </Button>
-                        <DataGrid
+                        <StripedDataGrid
                             rows={rows}
                             columns={columns}
+                            getRowClassName={(params) =>
+                                params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd'
+                            }
                             getRowId={(row) => row.emp_id}
                             onRowClick={handleRowClick}
                             initialState={{

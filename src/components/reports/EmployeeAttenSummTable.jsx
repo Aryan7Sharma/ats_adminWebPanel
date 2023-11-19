@@ -8,6 +8,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import Button from '@material-ui/core/Button';
 import exportData from '../common/ExportToExcel';
 import { makeStyles } from '@mui/styles';
+import { StripedDataGrid } from '../common/constants/theme';
 
 const useStyles = makeStyles((theme) => ({
     evenRow: {
@@ -145,7 +146,7 @@ const EmployeeAttenSummTable = ({ employees, startDate, setStartDate, endDate, s
                     Search
                 </Button>
                 <div>
-                    <div style={{ width: '80vw', margin: 'auto', backgroundColor: '#F9FAFB', marginBlock: 20 }}>
+                    <div style={{ maxWidth:'84vw', margin: 'auto', backgroundColor: '#F9FAFB', marginBlock: 20 }}>
                         <Button
                             variant='contained'
                             color='primary'

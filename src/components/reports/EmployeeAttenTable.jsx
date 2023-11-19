@@ -7,6 +7,7 @@ import { Autocomplete, InputLabel, MenuItem, Select, TextField } from '@mui/mate
 import { DataGrid } from '@mui/x-data-grid';
 import Button from '@material-ui/core/Button';
 import exportData from '../common/ExportToExcel';
+import { StripedDataGrid } from '../common/constants/theme';
 
 
 const columns = [
@@ -110,7 +111,7 @@ const SmartSearchDropdown = ({ employees,startDate,setStartDate,endDate,setEndDa
                     Search
                 </Button>
                 <div>
-                    <div style={{ width: '70%', margin: 'auto', backgroundColor: '#F9FAFB', marginBlock: 20 }}>
+                    <div style={{ maxWidth:'84vw', margin: 'auto', backgroundColor: '#F9FAFB', marginBlock: 20 }}>
                         <Button
                             variant='contained'
                             color='primary'

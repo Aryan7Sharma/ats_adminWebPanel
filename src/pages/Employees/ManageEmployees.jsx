@@ -33,7 +33,7 @@ const ManageEmployees = () => {
             <div style={{ display: 'flex', justifyContent: 'flex-start', width: '20vw' }}>
                 <Sidebar />
             </div>
-            <div style={{ marginLeft: 240, width: '87vw', position: 'absolute' }}>
+            <div style={{ marginLeft: 240, width: '87vw',minHeight:'100vh' ,position: 'absolute',backgroundColor: '#dfe6e9' }}>
                 <div style={{ position: 'relative' }}>
                     {/* <PageHeader
                         title="Manage Sites"

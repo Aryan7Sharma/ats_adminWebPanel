@@ -21,10 +21,13 @@ const AddSite = () => {
                 location_name: selectedLocation?.formatted_address,
                 latitude: selectedLocation?.geometry?.location?.lat(),
                 longitude: selectedLocation?.geometry?.location?.lng(),
+                location_alias:siteAlias
             }
+            console.log(apidata);
             const { data, error } = await CustomPostApi('/superadmin/addnewsite', apidata);
             if (!data) toast.error(`Failed!, ${error}`)
             else {
+                console.log("data",data);
                 toast.success(`Success!, ${data?.msg}`);
                 return;
             }
@@ -41,7 +44,7 @@ const AddSite = () => {
             <div style={{ display: 'flex', justifyContent: 'flex-start', width: '20vw' }}>
                 <Sidebar />
             </div>
-            <div style={{ marginLeft: 240, width: '87vw', position: 'absolute' }}>
+            <div style={{ marginLeft: 240, width: '87vw',minHeight:'100vh' ,position: 'absolute',backgroundColor: '#dfe6e9' }}>
                 <div style={{ position: 'relative' }}>
                     {/* <PageHeader
                         title="Add Site"

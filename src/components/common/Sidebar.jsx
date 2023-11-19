@@ -47,7 +47,7 @@ function Sidebar() {
     const [openEmployeesSubmenu, setOpenEmployeesSubmenu] = useState(false);
     const [openSitesSubmenu, setOpenSitesSubmenu] = useState(false);
     const [openReportsSubmenu, setOpenReportsSubmenu] = useState(false);
-    const [selectedMenuItem, setSelectedMenuItem] = useState("Dashboard");
+    const [selectedMenuItem, setSelectedMenuItem] = useState("Manage Depts");
 
     // Add a function to handle menu item clicks
     const handleMenuItemClick = (item, url) => {
@@ -66,7 +66,7 @@ function Sidebar() {
             }}
         >
             <List>
-                <ListItem
+                {/* <ListItem
                     button
                     selected={selectedMenuItem === 'Dashboard'}
                     onClick={() => handleMenuItemClick('Dashboard', '/')}
@@ -77,7 +77,7 @@ function Sidebar() {
                     </ListItemIcon>
                     <ListItemText primary="Dashboard" />
                 </ListItem>
-                <Divider />
+                <Divider /> */}
                 <ListItem button onClick={() => setOpenDeptsSubmenu(!openDeptsSubmenu)}>
                     <ListItemIcon>
                         <CorporateFareIcon fontSize={"large"} />

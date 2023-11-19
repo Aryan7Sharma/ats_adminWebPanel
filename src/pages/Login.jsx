@@ -41,7 +41,7 @@ export default function LoginPage() {
         const userDetailsString = JSON.stringify(data?.employee);
         localStorage.setItem('authToken', authToken);
         localStorage.setItem('userDetails', userDetailsString);
-        navigate("/");
+        navigate("/dept/managedepts");
         await setUser({ authToken: authToken });
       } else {
       }
