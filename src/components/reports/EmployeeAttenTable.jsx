@@ -56,7 +56,6 @@ const columns = [
 
 const SmartSearchDropdown = ({ employees, startDate, setStartDate, endDate, setEndDate, emp, setEmp, getAttenRep1, empAttenRepo1 }) => {
     const rows = empAttenRepo1;
-    console.log("rows", rows);
     const [selectedDate, setSelectedDate] = useState('2023-10-10');
     const [filter, setFilter] = useState("");
     const [openAutoComplete, setOpenAutoComplete] = useState(false);

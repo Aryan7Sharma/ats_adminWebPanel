@@ -23,11 +23,9 @@ const AddSite = () => {
                 longitude: selectedLocation?.geometry?.location?.lng(),
                 location_alias:siteAlias
             }
-            console.log(apidata);
             const { data, error } = await CustomPostApi('/superadmin/addnewsite', apidata);
             if (!data) toast.error(`Failed!, ${error}`)
             else {
-                console.log("data",data);
                 toast.success(`Success!, ${data?.msg}`);
                 return;
             }
