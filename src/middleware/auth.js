@@ -8,7 +8,7 @@ import {AuthContext} from '../contexts/AuthContext';
 export const IsUserLoggedIN = ({ children }) => {
     const { user } = useContext(AuthContext);
     if(user){
-        return <Navigate to={'/dept/managedepts'} replace={true}></Navigate>;
+        return <Navigate to={'/rep/employeeAttenReport'} replace={true}></Navigate>;
     }
     return children
 }

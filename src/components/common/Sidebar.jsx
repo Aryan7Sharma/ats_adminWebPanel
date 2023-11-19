@@ -47,7 +47,7 @@ function Sidebar() {
     const [openEmployeesSubmenu, setOpenEmployeesSubmenu] = useState(false);
     const [openSitesSubmenu, setOpenSitesSubmenu] = useState(false);
     const [openReportsSubmenu, setOpenReportsSubmenu] = useState(false);
-    const [selectedMenuItem, setSelectedMenuItem] = useState("Manage Depts");
+    const [selectedMenuItem, setSelectedMenuItem] = useState("Employee Attendance");
 
     // Add a function to handle menu item clicks
     const handleMenuItemClick = (item, url) => {
@@ -78,24 +78,44 @@ function Sidebar() {
                     <ListItemText primary="Dashboard" />
                 </ListItem>
                 <Divider /> */}
-                <ListItem button onClick={() => setOpenDeptsSubmenu(!openDeptsSubmenu)}>
+                <ListItem button onClick={() => setOpenReportsSubmenu(!openReportsSubmenu)}>
                     <ListItemIcon>
-                        <CorporateFareIcon fontSize={"large"} />
+                        <FolderIcon fontSize={"large"} />
                     </ListItemIcon>
-                    <ListItemText primary="Departments Section" />
-                    {openDeptsSubmenu ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                    <ListItemText primary="Reports" />
+                    {openReportsSubmenu ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                 </ListItem>
                 <Divider />
-                <Collapse in={openDeptsSubmenu} timeout="auto" unmountOnExit>
+                <Collapse in={openReportsSubmenu} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                        <ListItem button
-                            selected={selectedMenuItem === 'Manage Depts'}
-                            onClick={() => handleMenuItemClick('Manage Depts', '/dept/managedepts')}
-                            className={classes.nested}>
+                        <ListItem
+                            button
+                            className={classes.nested}
+                            selected={selectedMenuItem === 'Employee Attendance'}
+                            onClick={() => handleMenuItemClick('Employee Attendance', '/rep/employeeAttenReport')}
+                        >
                             <ListItemIcon>
-                                <RoomPreferencesIcon />
+                                <ContentPasteSharpIcon />
                             </ListItemIcon>
-                            <ListItemText primary="Manage Departments" />
+                            <ListItemText primary="Employee Attendance" />
+                        </ListItem>
+                        <ListItem button className={classes.nested}
+                            selected={selectedMenuItem === 'Consolidate Attendance Report'}
+                            onClick={() => handleMenuItemClick('Consolidate Attendance Report', '/rep/employeesAttenSummReport')}
+                        >
+                            <ListItemIcon>
+                                <SummarizeIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Consolidate Attendance Report" />
+                        </ListItem>
+                        <ListItem button className={classes.nested}
+                            selected={selectedMenuItem === 'All Employees Consolidated Report'}
+                            onClick={() => handleMenuItemClick('All Employees Consolidated Report', '/rep/employeesAttenReport')}
+                        >
+                            <ListItemIcon>
+                                <SummarizeIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="All Employees Consolidated Report" />
                         </ListItem>
                     </List>
                 </Collapse>
@@ -160,44 +180,24 @@ function Sidebar() {
                         </ListItem>
                     </List>
                 </Collapse>
-                <ListItem button onClick={() => setOpenReportsSubmenu(!openReportsSubmenu)}>
+                <ListItem button onClick={() => setOpenDeptsSubmenu(!openDeptsSubmenu)}>
                     <ListItemIcon>
-                        <FolderIcon fontSize={"large"} />
+                        <CorporateFareIcon fontSize={"large"} />
                     </ListItemIcon>
-                    <ListItemText primary="Reports" />
-                    {openReportsSubmenu ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                    <ListItemText primary="Departments Section" />
+                    {openDeptsSubmenu ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                 </ListItem>
                 <Divider />
-                <Collapse in={openReportsSubmenu} timeout="auto" unmountOnExit>
+                <Collapse in={openDeptsSubmenu} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                        <ListItem
-                            button
-                            className={classes.nested}
-                            selected={selectedMenuItem === 'Employee Attendance'}
-                            onClick={() => handleMenuItemClick('Employee Attendance', '/rep/employeeAttenReport')}
-                        >
+                        <ListItem button
+                            selected={selectedMenuItem === 'Manage Depts'}
+                            onClick={() => handleMenuItemClick('Manage Depts', '/dept/managedepts')}
+                            className={classes.nested}>
                             <ListItemIcon>
-                                <ContentPasteSharpIcon />
+                                <RoomPreferencesIcon />
                             </ListItemIcon>
-                            <ListItemText primary="Employee Attendance" />
-                        </ListItem>
-                        <ListItem button className={classes.nested}
-                            selected={selectedMenuItem === 'Consolidate Attendance Report'}
-                            onClick={() => handleMenuItemClick('Consolidate Attendance Report', '/rep/employeesAttenSummReport')}
-                        >
-                            <ListItemIcon>
-                                <SummarizeIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Consolidate Attendance Report" />
-                        </ListItem>
-                        <ListItem button className={classes.nested}
-                            selected={selectedMenuItem === 'All Employees Consolidated Report'}
-                            onClick={() => handleMenuItemClick('All Employees Consolidated Report', '/rep/employeesAttenReport')}
-                        >
-                            <ListItemIcon>
-                                <SummarizeIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="All Employees Consolidated Report" />
+                            <ListItemText primary="Manage Departments" />
                         </ListItem>
                     </List>
                 </Collapse>

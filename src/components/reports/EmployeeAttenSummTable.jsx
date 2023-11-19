@@ -146,7 +146,7 @@ const EmployeeAttenSummTable = ({ employees, startDate, setStartDate, endDate, s
                     Search
                 </Button>
                 <div>
-                    <div style={{ maxWidth:'84vw', margin: 'auto', backgroundColor: '#F9FAFB', marginBlock: 20 }}>
+                    <div style={{ maxWidth: '84vw', margin: 'auto', backgroundColor: '#F9FAFB', marginBlock: 20 }}>
                         <Button
                             variant='contained'
                             color='primary'
@@ -154,7 +154,7 @@ const EmployeeAttenSummTable = ({ employees, startDate, setStartDate, endDate, s
                         >
                             Export to Excel
                         </Button>
-                        <Typography variant="h6">{rows ? `Attendance Report of ${rows[0]?.Employee_Designation} ${rows[0]?.Employee_Name}   --   Employee Code(${rows[0]?.Employee_Code})` : ""}</Typography>
+                        {rows[0] && (<Typography variant="h6">{rows ? `Attendance Report of ${rows[0]?.Employee_Designation || " "} ${rows[0]?.Employee_Name || " "}   --   Employee Code(${rows[0]?.Employee_Code || ""})` : ""}</Typography>)}
                         <DataGrid
                             label={"checkinggg"}
                             rows={rows}

@@ -48,7 +48,10 @@ const EmployeeAttenReport = () => {
       if (!data) toast.error(`Failed!, ${error}`)
       else {
         toast.success(`Success!, ${data?.msg}`)
-        setEmpAttenRepo1(data?.data);
+        const Empdata = data?.data;
+        setEmpAttenRepo1(Empdata.map((data, i)=>{
+          return {id:i, ...data}
+        }));
         return;
       }
     } catch (err) {

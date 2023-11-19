@@ -35,13 +35,13 @@ export default function LoginPage() {
       } else if (loginPromise.status === 200) {
         toast.success("Login Successfully!")
         const { data } = loginPromise.data;
-        console.log("data",data);
+        console.log("data", data);
         const authToken = data?.authToken;
         console.log(authToken);
         const userDetailsString = JSON.stringify(data?.employee);
         localStorage.setItem('authToken', authToken);
         localStorage.setItem('userDetails', userDetailsString);
-        navigate("/dept/managedepts");
+        navigate("/rep/employeeAttenReport");
         await setUser({ authToken: authToken });
       } else {
       }
