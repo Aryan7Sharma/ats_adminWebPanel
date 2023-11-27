@@ -61,7 +61,17 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
     <div className="update-employee-form" style={{ background: 'wheat', width: '80%', margin: 'auto', marginLeft: 300, alignContent: 'center', alignItems: 'center' }}>
       {isLoading && <LoadingOverlay />}
       <Toaster position='top-center' reverseOrder={false}></Toaster>
-      <h3>Update Employee</h3>
+      <div style={{ display: 'flex', marginTop:'5px',justifyContent:'space-between'}}>
+        <h3>Update Employee</h3>
+        <div style={{ display: 'flex', justifyContent: 'center', marginRight:'10px'}}>
+          <Button variant="contained" color="primary" onClick={handleUpdate} style={{ marginRight: 10 }}>
+            Update
+          </Button>
+          <Button variant="contained" color="secondary" onClick={onClose} style={{ marginLeft: 10 }}>
+            Cancel
+          </Button>
+        </div>
+      </div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div style={{ display: 'flex', flexDirection: 'column', paddingInline: 30, justifyContent: 'space-evenly' }}>
           <div style={{ display: 'flex' }}>
@@ -71,7 +81,7 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.emp_name}
               onChange={handleChange}
-              style={{ margin: '8px', fontWeight: 'bolder' }}
+              style={{ margin: '4px', fontWeight: 'bolder' }}
             />
             <TextField
               name="emp_emailid"
@@ -79,7 +89,7 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.emp_emailid}
               onChange={handleChange}
-              style={{ marginBlock: '8px' }}
+              style={{ marginBlock: '4px' }}
             />
           </div>
           <div style={{ display: 'flex' }}>
@@ -89,7 +99,7 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.emp_phoneno}
               onChange={handleChange}
-              style={{ marginBlock: '8px' }}
+              style={{ marginBlock: '4px' }}
             />
             <TextField
               name="emp_address"
@@ -97,7 +107,7 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.emp_address}
               onChange={handleChange}
-              style={{ marginBlock: '8px' }}
+              style={{ marginBlock: '4px' }}
             />
           </div>
           <div style={{ display: 'flex' }}>
@@ -107,7 +117,7 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.emp_id}
               onChange={handleChange}
-              style={{ marginBlock: '8px' }}
+              style={{ marginBlock: '4px' }}
               disabled
             />
             <TextField
@@ -116,7 +126,7 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.emp_type === 3 ? "Employee" : updatedEmployee.emp_type === 2 ? "Admin" : "Super Admin"}
               onChange={handleChange}
-              style={{ marginBlock: '8px' }}
+              style={{ marginBlock: '4px' }}
               disabled
             />
           </div>
@@ -127,7 +137,7 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.emp_degination}
               onChange={handleChange}
-              style={{ marginBlock: '8px' }}
+              style={{ marginBlock: '4px' }}
             />
             <TextField
               name="department_id"
@@ -135,7 +145,7 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.department_id}
               onChange={handleChange}
-              style={{ marginBlock: '8px' }}
+              style={{ marginBlock: '4px' }}
               disabled
             />
           </div>
@@ -147,7 +157,7 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.emp_joiningdate}
               onChange={handleChange}
-              style={{ marginBlock: '8px' }}
+              style={{ marginBlock: '4px' }}
             />
             <TextField
               name="emp_status"
@@ -155,7 +165,7 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.emp_status == 1 ? "Active" : "Block"}
               onChange={handleChange}
-              style={{ marginBlock: '8px' }}
+              style={{ marginBlock: '4px' }}
               disabled
             />
           </div>
@@ -166,7 +176,7 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.creater_id}
               onChange={handleChange}
-              style={{ marginBlock: '8px' }}
+              style={{ marginBlock: '4px' }}
               disabled
             />
             <TextField
@@ -176,7 +186,7 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.creation_date}
               onChange={handleChange}
-              style={{ marginBlock: '8px' }}
+              style={{ marginBlock: '4px' }}
               disabled
             />
           </div>
@@ -196,19 +206,19 @@ const UpdateEmployeeForm = ({ employee, isOpen, onClose, onUpdate }) => {
               fullWidth
               value={updatedEmployee.password}
               onChange={handleChange}
-              style={{ marginBlock: '8px' }}
+              style={{ marginBlock: '4px' }}
               disabled={!passChangeChecked}
             />
           </div>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', margin: 20 }}>
+        {/* <div style={{ display: 'flex', justifyContent: 'center', margin: 20 }}>
           <Button variant="contained" color="primary" onClick={handleUpdate} style={{ marginRight: 10 }}>
             Update
           </Button>
           <Button variant="contained" color="secondary" onClick={onClose} style={{ marginLeft: 10 }}>
             Cancel
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
