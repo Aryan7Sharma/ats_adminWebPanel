@@ -213,7 +213,7 @@ const Registration = ({ classes, departments, formData, setFormData, submitRegis
             <div style={{ display: 'flex' }}>
               <FormControl required fullWidth margin="normal">
                 <InputLabel htmlFor="empid" className={classes.labels}>
-                  Employee Id:
+                  Employee-Id:
                 </InputLabel>
                 <Input
                   name="empid"
