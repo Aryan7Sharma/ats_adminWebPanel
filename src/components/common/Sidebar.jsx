@@ -13,6 +13,7 @@ import ShareLocationIcon from '@mui/icons-material/ShareLocation';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import EventBusyIcon from '@mui/icons-material/EventBusy';
 import CorporateFareIcon from '@mui/icons-material/CorporateFare';
 import RoomPreferencesIcon from '@mui/icons-material/RoomPreferences';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
@@ -58,15 +59,17 @@ function Sidebar() {
 
 
     return (
-        <Drawer
-            variant="permanent"
-            anchor="left"
-            classes={{
-                paper: `${classes.drawer} ${classes.sidebar}`,
-            }}
-        >
-            <List>
-                {/* <ListItem
+        <div style={{ maxWidth: '20vw' }}>
+            <Drawer
+                variant="permanent"
+                anchor="left"
+                classes={{
+                    paper: `${classes.drawer} ${classes.sidebar}`,
+                }}
+
+            >
+                <List >
+                    {/* <ListItem
                     button
                     selected={selectedMenuItem === 'Dashboard'}
                     onClick={() => handleMenuItemClick('Dashboard', '/')}
@@ -78,131 +81,150 @@ function Sidebar() {
                     <ListItemText primary="Dashboard" />
                 </ListItem>
                 <Divider /> */}
-                <ListItem button onClick={() => setOpenReportsSubmenu(!openReportsSubmenu)}>
-                    <ListItemIcon>
-                        <FolderIcon fontSize={"large"} />
-                    </ListItemIcon>
-                    <ListItemText primary="Reports" />
-                    {openReportsSubmenu ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                </ListItem>
-                <Divider />
-                <Collapse in={openReportsSubmenu} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItem
-                            button
-                            className={classes.nested}
-                            selected={selectedMenuItem === 'Employee Attendance'}
-                            onClick={() => handleMenuItemClick('Employee Attendance', '/rep/employeeAttenReport')}
-                        >
-                            <ListItemIcon>
-                                <ContentPasteSharpIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Employee Attendance" />
-                        </ListItem>
-                        <ListItem button className={classes.nested}
-                            selected={selectedMenuItem === 'Consolidate Attendance Report'}
-                            onClick={() => handleMenuItemClick('Consolidate Attendance Report', '/rep/employeesAttenSummReport')}
-                        >
-                            <ListItemIcon>
-                                <SummarizeIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Consolidate Attendance Report" />
-                        </ListItem>
-                        <ListItem button className={classes.nested}
-                            selected={selectedMenuItem === 'All Employees Consolidated Report'}
-                            onClick={() => handleMenuItemClick('All Employees Consolidated Report', '/rep/employeesAttenReport')}
-                        >
-                            <ListItemIcon>
-                                <SummarizeIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="All Employees Consolidated Report" />
-                        </ListItem>
-                    </List>
-                </Collapse>
+                    <ListItem button onClick={() => setOpenReportsSubmenu(!openReportsSubmenu)}>
+                        <ListItemIcon>
+                            <FolderIcon fontSize={"large"} />
+                        </ListItemIcon>
+                        <ListItemText primary="Reports" />
+                        {openReportsSubmenu ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                    </ListItem>
+                    <Divider />
+                    <Collapse in={openReportsSubmenu} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                            <ListItem
+                                button
+                                className={classes.nested}
+                                style={{ alignItems: 'start' }}
+                                selected={selectedMenuItem === 'Employee Attendance'}
+                                onClick={() => handleMenuItemClick('Employee Attendance', '/rep/employeeAttenReport')}
+                            >
+                                <ListItemIcon>
+                                    <ContentPasteSharpIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Employee Attendance" />
+                            </ListItem>
+                            <ListItem button className={classes.nested}
+                                style={{ alignItems: 'start' }}
+                                selected={selectedMenuItem === 'Consolidate Attendance Report'}
+                                onClick={() => handleMenuItemClick('Consolidate Attendance Report', '/rep/employeesAttenSummReport')}
+                            >
+                                <ListItemIcon>
+                                    <SummarizeIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Consolidate Attendance Report" style={{ alignItems: 'start' }} />
+                            </ListItem>
+                            <ListItem button className={classes.nested}
+                                style={{ alignItems: 'start' }}
+                                selected={selectedMenuItem === 'All Employees Consolidated Report'}
+                                onClick={() => handleMenuItemClick('All Employees Consolidated Report', '/rep/employeesAttenReport')}
+                            >
+                                <ListItemIcon>
+                                    <SummarizeIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="All Employees Consolidated Report" />
+                            </ListItem>
+                            <ListItem button className={classes.nested}
+                                style={{ alignItems: 'start' }}
+                                selected={selectedMenuItem === 'Working Days Report'}
+                                onClick={() => handleMenuItemClick('Working Days Report', '/rep/workingdaysReport')}
+                            >
+                                <ListItemIcon>
+                                    <EventBusyIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Working Days Report" />
+                            </ListItem>
+                        </List>
+                    </Collapse>
 
-                <ListItem button onClick={() => setOpenEmployeesSubmenu(!openEmployeesSubmenu)}>
-                    <ListItemIcon>
-                        <PeopleAltIcon fontSize={"large"} />
-                    </ListItemIcon>
-                    <ListItemText primary="Employees" />
-                    {openEmployeesSubmenu ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                </ListItem>
-                <Divider />
-                <Collapse in={openEmployeesSubmenu} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItem button className={classes.nested}
-                            selected={selectedMenuItem === 'Manage Employees'}
-                            onClick={() => handleMenuItemClick('Manage Employees', '/emp/manageemployees')}
-                        >
-                            <ListItemIcon>
-                                <ManageAccountsIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Manage Employees" />
-                        </ListItem>
-                        <ListItem button className={classes.nested}
-                            selected={selectedMenuItem === 'Add New Employee'}
-                            onClick={() => handleMenuItemClick('Add New Employee', '/emp/addemployee')}
-                        >
-                            <ListItemIcon>
-                                <PersonAddIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Add New Employee" />
-                        </ListItem>
-                    </List>
-                </Collapse>
-                <ListItem button onClick={() => setOpenSitesSubmenu(!openSitesSubmenu)}>
-                    <ListItemIcon>
-                        <ShareLocationIcon fontSize={"large"} />
-                    </ListItemIcon>
-                    <ListItemText primary="Sites" />
-                    {openSitesSubmenu ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                </ListItem>
-                <Divider />
-                <Collapse in={openSitesSubmenu} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItem button
-                            selected={selectedMenuItem === 'Manage Sites'}
-                            onClick={() => handleMenuItemClick('Manage Sites', '/site/managesites')}
-                            className={classes.nested}>
-                            <ListItemIcon>
-                                <EditLocationAltIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Manage Sites" />
-                        </ListItem>
-                        <ListItem button className={classes.nested}
-                            selected={selectedMenuItem === 'Add New Site'}
-                            onClick={() => handleMenuItemClick('Add New Site', '/site/addsite')}
-                        >
-                            <ListItemIcon>
-                                <AddLocationAltIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Add New Site" />
-                        </ListItem>
-                    </List>
-                </Collapse>
-                <ListItem button onClick={() => setOpenDeptsSubmenu(!openDeptsSubmenu)}>
-                    <ListItemIcon>
-                        <CorporateFareIcon fontSize={"large"} />
-                    </ListItemIcon>
-                    <ListItemText primary="Departments Section" />
-                    {openDeptsSubmenu ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                </ListItem>
-                <Divider />
-                <Collapse in={openDeptsSubmenu} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItem button
-                            selected={selectedMenuItem === 'Manage Depts'}
-                            onClick={() => handleMenuItemClick('Manage Depts', '/dept/managedepts')}
-                            className={classes.nested}>
-                            <ListItemIcon>
-                                <RoomPreferencesIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Manage Departments" />
-                        </ListItem>
-                    </List>
-                </Collapse>
-            </List>
-        </Drawer>
+                    <ListItem button onClick={() => setOpenEmployeesSubmenu(!openEmployeesSubmenu)}>
+                        <ListItemIcon>
+                            <PeopleAltIcon fontSize={"large"} />
+                        </ListItemIcon>
+                        <ListItemText primary="Employees" />
+                        {openEmployeesSubmenu ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                    </ListItem>
+                    <Divider />
+                    <Collapse in={openEmployeesSubmenu} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                            <ListItem button className={classes.nested}
+                                style={{ alignItems: 'start' }}
+                                selected={selectedMenuItem === 'Manage Employees'}
+                                onClick={() => handleMenuItemClick('Manage Employees', '/emp/manageemployees')}
+                            >
+                                <ListItemIcon>
+                                    <ManageAccountsIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Manage Employees" style={{ alignItems: 'start' }} />
+                            </ListItem>
+                            <ListItem button className={classes.nested}
+                                style={{ alignItems: 'start' }}
+                                selected={selectedMenuItem === 'Add New Employee'}
+                                onClick={() => handleMenuItemClick('Add New Employee', '/emp/addemployee')}
+                            >
+                                <ListItemIcon>
+                                    <PersonAddIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Add New Employee" style={{ alignItems: 'start' }} />
+                            </ListItem>
+                        </List>
+                    </Collapse>
+                    <ListItem button onClick={() => setOpenSitesSubmenu(!openSitesSubmenu)}>
+                        <ListItemIcon>
+                            <ShareLocationIcon fontSize={"large"} />
+                        </ListItemIcon>
+                        <ListItemText primary="Sites" />
+                        {openSitesSubmenu ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                    </ListItem>
+                    <Divider />
+                    <Collapse in={openSitesSubmenu} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                            <ListItem button
+                                style={{ alignItems: 'start' }}
+                                selected={selectedMenuItem === 'Manage Sites'}
+                                onClick={() => handleMenuItemClick('Manage Sites', '/site/managesites')}
+                                className={classes.nested}>
+                                <ListItemIcon>
+                                    <EditLocationAltIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Manage Sites" style={{ alignItems: 'start' }} />
+                            </ListItem>
+                            <ListItem button className={classes.nested}
+                                style={{ alignItems: 'start' }}
+                                selected={selectedMenuItem === 'Add New Site'}
+                                onClick={() => handleMenuItemClick('Add New Site', '/site/addsite')}
+                            >
+                                <ListItemIcon>
+                                    <AddLocationAltIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Add New Site" style={{ alignItems: 'start' }} />
+                            </ListItem>
+                        </List>
+                    </Collapse>
+                    <ListItem button onClick={() => setOpenDeptsSubmenu(!openDeptsSubmenu)}>
+                        <ListItemIcon>
+                            <CorporateFareIcon fontSize={"large"} />
+                        </ListItemIcon>
+                        <ListItemText primary="Departments Section" />
+                        {openDeptsSubmenu ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                    </ListItem>
+                    <Divider />
+                    <Collapse in={openDeptsSubmenu} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                            <ListItem button
+                                style={{ alignItems: 'start' }}
+                                selected={selectedMenuItem === 'Manage Depts'}
+                                onClick={() => handleMenuItemClick('Manage Depts', '/dept/managedepts')}
+                                className={classes.nested}>
+                                <ListItemIcon>
+                                    <RoomPreferencesIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Manage Departments" style={{ alignItems: 'start' }} />
+                            </ListItem>
+                        </List>
+                    </Collapse>
+                </List>
+            </Drawer>
+        </div>
     );
 }
 

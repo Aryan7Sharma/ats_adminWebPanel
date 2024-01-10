@@ -1,9 +1,10 @@
 import axios from 'axios';
 //import jwt_decode from 'jwt-decode';
 
-axios.defaults.baseURL = process.env.NODE_ENV === "production"?"/ats/api":"http://3.110.147.43/ats/api";
+//axios.defaults.baseURL = process.env.NODE_ENV === "production" ? "/ats/api" : "http://65.0.203.0/ats/api";
+//axios.defaults.baseURL = process.env.NODE_ENV === "production" ? "/ats/api" : "http://13.232.206.231/ats/api";
 
-//axios.defaults.baseURL = "/ats/api";
+axios.defaults.baseURL = "http://localhost:3002/ats/api";
 /** Make API Requests */
 const token = localStorage.getItem("authToken");
 

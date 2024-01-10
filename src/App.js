@@ -11,6 +11,7 @@ import {
   EmployeeAttenReport,
   EmployeesAttenReport,
   EmployeeMonthlyAttenSummaryReport,
+  WorkingdaysReport,
   AddEmployee,
   ManageEmployees,
   AddSite,
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: '/rep/employeesAttenSummReport',
     element: <ProtectAllUserRoute><EmployeeMonthlyAttenSummaryReport /></ProtectAllUserRoute>
+  },
+  {
+    path: '/rep/workingdaysReport',
+    element: <ProtectAllUserRoute><WorkingdaysReport /></ProtectAllUserRoute>
   },
   {
     path: '/dept/managedepts',

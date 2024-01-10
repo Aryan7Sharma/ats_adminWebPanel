@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Sidebar } from '../components/index';
 import { Container, Paper, Avatar, Typography, Button, Grid, Divider } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { Toaster, toast } from 'react-hot-toast';
+import LoadingOverlay from '../components/common/LoadingOverlay';
+import { useAuth } from '../contexts/AuthContext';
 import { CustomGetApi } from '../api';
 
 const UserProfile = () => {
+    const navigate = useNavigate();
+    const { user, setUser } = useAuth();
     const [isLoading, setIsLoading] = useState(false);
     const [userDetails, setUserDetails] = useState(null);
     const getDashData = async () => {
@@ -33,16 +39,28 @@ const UserProfile = () => {
         }
     }
 
+    const handleLogout = () => {
+        try {
+            localStorage.clear();
+            setUser(null);
+            navigate("/signin")
+            toast.success("Signed Out!");
+        } catch (error) {
+            toast.error("Something Went Wrong!");
+        }
+    };
     useEffect(() => {
         //getDashData();
         getUserDetails();
     }, [])
     return (
         <main style={{ display: 'flex' }}>
+            {isLoading && <LoadingOverlay />}
+            <Toaster position='top-center' reverseOrder={false}></Toaster>
             <div style={{ display: 'flex', justifyContent: 'flex-start', width: '20vw' }}>
                 <Sidebar />
             </div>
-            <div style={{ marginLeft: 240, width: '87vw',minHeight:'100vh' ,position: 'absolute',backgroundColor: '#dfe6e9' }}>
+            <div style={{ marginLeft: 240, width: '87vw', minHeight: '100vh', position: 'absolute', backgroundColor: '#dfe6e9' }}>
                 <div style={{ position: 'relative' }}>
                     <div>
                         {/* main user profile */}
@@ -86,13 +104,6 @@ const UserProfile = () => {
                                         Attendance's Summary
                                     </Typography>
                                     <Divider style={{ margin: '20px 0' }} />
-                                    <Typography variant="h5" gutterBottom>
-                                        Order History
-                                    </Typography>
-                                    <Divider style={{ margin: '20px 0' }} />
-                                    <Typography variant="h5" gutterBottom>
-                                        Order History
-                                    </Typography>
                                     <Divider style={{ margin: '20px 0' }} />
 
                                     {/* Add a list of user's order history here */}
@@ -101,11 +112,14 @@ const UserProfile = () => {
                                     <Grid container spacing={3} style={{ display: 'flex', justifyContent: 'center' }}>
                                         <Button variant="contained" color="primary"
                                             style={{ marginRight: '5px' }}
+                                            onClick={() => window.alert("Currently is't not available for you!")}
                                         >
+
                                             Edit Profile
                                         </Button>
                                         <Button variant="contained" color="primary"
                                             style={{ marginLeft: '5px' }}
+                                            onClick={handleLogout}
                                         >
                                             Sign-Out
                                         </Button>
